@@ -147,8 +147,8 @@ const App = () => {
   };
 
   const progressWidth = ((stepNumber - 1) / 4) * 100 + "%";
-  const iconPosition = `calc(${progressWidth} - 0.5rem)`; // Adjust icon position
-  const iconTextPosition = `calc(${progressWidth} - 1.5rem)`; // Adjust icon position
+  const iconPosition = `calc(${progressWidth} - 0.5rem)`; 
+  const iconTextPosition = `calc(${progressWidth} - 1.5rem)`;
 
   console.log("progressWidth :>> ", progressWidth, stepNumber);
   return (
@@ -163,7 +163,6 @@ const App = () => {
 
         <div className="h-96 mt-14">
           <StepContainer>
-            {/* <h1>Step:{stepNumber}</h1> */}
             <Steps current={stepNumber} />
           </StepContainer>
         </div>

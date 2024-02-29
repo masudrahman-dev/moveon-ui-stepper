@@ -150,7 +150,6 @@ const Stepper = () => {
   const iconPosition = `calc(${progressWidth} - 0.5rem)`; 
   const iconTextPosition = `calc(${progressWidth} - 1.5rem)`;
 
-  console.log("progressWidth :>> ", progressWidth, stepNumber);
   return (
     <div className="mx-auto  mt-10 max-w-screen-lg">
       <div className="border rounded-lg p-10">

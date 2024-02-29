@@ -97,7 +97,7 @@ const StepperFooter = ({ progressWidth, handleBack, handleNext }) => {
   );
 };
 
-const StepperHeader = ({ progressWidth, iconPosition, stepNumber }) => {
+const StepperHeader = ({ progressWidth, iconPosition, stepNumber,iconTextPosition }) => {
   return (
     <div className="bg-black rounded-lg h-3 w-full relative">
       <div
@@ -108,14 +108,23 @@ const StepperHeader = ({ progressWidth, iconPosition, stepNumber }) => {
         }}
       >
         <div
-          className="absolute top-0 text-center flex flex-col items-center"
+          className="absolute top-0 left-2 text-center   "
           style={{
             left: iconPosition,
-            transition: "left 0.5s ease-in-out", // Add transition for icon position
+            transition: "left 0.5s ease-in-out",
           }}
         >
           <span className="bg-white rounded-full w-3 h-3 flex items-center justify-center"></span>
-          <div className="mt-3"> step-{stepNumber}</div>
+        </div>
+
+        <div
+          className="absolute top-7 text-start "
+          style={{
+            left: iconTextPosition,
+            transition: "left 0.5s ease-in-out",
+          }}
+        >
+          <span style={{ whiteSpace: "nowrap" }}> step-{stepNumber}</span>
         </div>
       </div>
     </div>
@@ -138,7 +147,8 @@ const App = () => {
   };
 
   const progressWidth = ((stepNumber - 1) / 4) * 100 + "%";
-  const iconPosition = `calc(${progressWidth} - 1.5rem)`; // Adjust icon position
+  const iconPosition = `calc(${progressWidth} - 0.5rem)`; // Adjust icon position
+  const iconTextPosition = `calc(${progressWidth} - 1.5rem)`; // Adjust icon position
 
   console.log("progressWidth :>> ", progressWidth, stepNumber);
   return (
@@ -148,6 +158,7 @@ const App = () => {
           iconPosition={iconPosition}
           progressWidth={progressWidth}
           stepNumber={stepNumber}
+          iconTextPosition={iconTextPosition}
         />
 
         <div className="h-96 mt-14">

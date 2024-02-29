@@ -3,9 +3,9 @@ import React, { useState } from "react";
 
 const StepContainer = ({ children }) => {
   return (
-    <>
+    <div className="border p-4 h-full rounded-lg">
       <div>{children} </div>
-    </>
+    </div>
   );
 };
 
@@ -73,7 +73,7 @@ const Steps = ({ current }) => {
 
 const StepperFooter = ({ progressWidth, handleBack, handleNext }) => {
   return (
-    <div>
+    <div className="mt-7">
       <div className="flex justify-between">
         <button
           className={clsx("border p-3 rounded-lg shadow", {
@@ -153,7 +153,7 @@ const App = () => {
   console.log("progressWidth :>> ", progressWidth, stepNumber);
   return (
     <div className="mx-auto  mt-10 max-w-screen-lg">
-      <div className="border p-10">
+      <div className="border rounded-lg p-10">
         <StepperHeader
           iconPosition={iconPosition}
           progressWidth={progressWidth}

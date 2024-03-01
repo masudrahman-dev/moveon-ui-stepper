@@ -3,12 +3,15 @@ import React from "react";
 
 interface StepperFooterProps {
   progressWidth: string;
+  stepNumber: number;
   handleBack: () => void;
   handleNext: () => void;
+  handleSubmit?: () => void;
 }
 
 const StepperFooter: React.FC<StepperFooterProps> = ({
   progressWidth,
+  stepNumber,
   handleBack,
   handleNext,
 }) => {
@@ -16,22 +19,35 @@ const StepperFooter: React.FC<StepperFooterProps> = ({
     <div className="mt-7">
       <div className="flex justify-between">
         <button
+          type="button"
           className={clsx("border p-3 rounded-lg shadow", {
-            "bg-slate-300": progressWidth === "0%",
+            "bg-slate-300": stepNumber === 1,
           })}
           onClick={handleBack}
         >
           Back
         </button>
-        <button
-          disabled={progressWidth === "100%"}
-          className={clsx("border p-3 rounded-lg shadow", {
-            "bg-slate-300": progressWidth === "100%",
-          })}
-          onClick={handleNext}
-        >
-          Next
-        </button>
+
+        {stepNumber === 4 ? (
+          <button
+            className={clsx("border p-3 rounded-lg shadow", {
+              "bg-slate-300": stepNumber === 4,
+            })}
+            type="submit"
+          >
+            Submit
+          </button>
+        ) : (
+          <button
+            type="button"
+            className={clsx("border p-3 rounded-lg shadow", {
+              "bg-green-500": stepNumber === 4,
+            })}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        )}
       </div>
     </div>
   );

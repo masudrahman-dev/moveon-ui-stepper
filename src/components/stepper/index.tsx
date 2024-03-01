@@ -1,21 +1,34 @@
-import clsx from "clsx";
 import React, { useState } from "react";
-import StepperHeader from "./stepper-header";
+import StepperHeader from "./stepper-header-arrow";
 import StepperFooter from "./stepper-footer";
 import { Steps } from "./steps";
+import { useStepperForm } from "./stepper-context";
 
 const Stepper = () => {
   const [stepNumber, setStepNumber] = useState(1);
 
+  const { context, stepprForm } = useStepperForm();
+
+  const {
+    formState: { errors },
+    handleSubmit,
+  } = stepprForm;
+
+  const onSubmit = (data) => {
+    alert("data");
+
+    console.log("data :>> ", data);
+  };
+
   const handleNext = () => {
-    if (stepNumber < 5) {
-      setStepNumber(stepNumber + 1);
+    if (stepNumber <= 3) {
+      setStepNumber((c) => c + 1);
     }
   };
 
   const handleBack = () => {
     if (stepNumber > 1) {
-      setStepNumber(stepNumber - 1);
+      setStepNumber((c) => c - 1);
     }
   };
 
@@ -24,7 +37,10 @@ const Stepper = () => {
   const iconTextPosition = `calc(${progressWidth} - 1.5rem)`;
 
   return (
-    <div className="mx-auto  mt-10 max-w-screen-lg">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="mx-auto  mt-10 max-w-[650px]"
+    >
       <div className="border rounded-lg p-10">
         <StepperHeader
           iconPosition={iconPosition}
@@ -40,10 +56,11 @@ const Stepper = () => {
         <StepperFooter
           handleBack={handleBack}
           handleNext={handleNext}
+          stepNumber={stepNumber}
           progressWidth={progressWidth}
         />
       </div>
-    </div>
+    </form>
   );
 };
 

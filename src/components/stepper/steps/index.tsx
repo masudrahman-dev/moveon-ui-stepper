@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import { useStepperForm } from "../stepper-context";
 
 interface StepProps {
   children: ReactNode;
@@ -21,6 +22,10 @@ interface StepsProps {
 }
 
 export const Steps: React.FC<StepsProps> = ({ currentStepNumber }) => {
+  const {
+    stepprForm: { register },
+  } = useStepperForm();
+
   return (
     <StepContainer>
       {currentStepNumber === 1 && (
@@ -37,6 +42,18 @@ export const Steps: React.FC<StepsProps> = ({ currentStepNumber }) => {
       {currentStepNumber === 2 && (
         <Step>
           <h1>Step 2</h1>
+
+          <div>
+            <label htmlFor="firstName" className="block border p-3">
+              <input
+                placeholder="FirstName"
+                {...register("firstName")}
+                type="text"
+                name="firstName"
+                id="firstName"
+              />
+            </label>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
             voluptate, at exercitationem quas in cupiditate suscipit est dicta
@@ -57,23 +74,13 @@ export const Steps: React.FC<StepsProps> = ({ currentStepNumber }) => {
       )}
       {currentStepNumber === 4 && (
         <Step>
-          <h1>Step 4</h1>
-          <p>
-            recusandae sequi eius ab velit consequuntur error ducimus libero.
-            Amet, inventore doloremque? recusandae sequi eius ab velit
-            consequuntur error ducimus libero. Amet, inventore doloremque?
-            recusandae sequi eius ab velit consequuntur error ducimus libero.
-            Amet, inventore doloremque?
-          </p>
-        </Step>
-      )}
-      {currentStepNumber === 5 && (
-        <Step>
-          <h1>Step 5</h1>
-          <p>
-            recusandae sequi eius ab velit consequuntur error ducimus libero.
-            Amet, inventore doloremque?
-          </p>
+          <Step>
+            <h1>Step 3</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              voluptate, at exercitationem quas in cupiditate suscipit est dicta
+            </p>
+          </Step>
         </Step>
       )}
     </StepContainer>

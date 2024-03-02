@@ -59,7 +59,7 @@ const SideNavigationMenu = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ml-3">
       <div className="mx-auto   mt-10 max-w-screen-lg">
         <div className=" rounded-lg border w-72  ">
           <ul>

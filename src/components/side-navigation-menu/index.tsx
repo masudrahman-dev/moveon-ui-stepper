@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 
 const GrandChildMenu = ({ grandChildMenu }) => {
   return (
-    <ul className="group-hover/child:flex  flex-col gap-3      p-3 w-48 absolute border hidden -right-[185px] top-0 z-50">
+    <ul className="group-hover/child:flex  flex-col  hidden    w-52 absolute border  -right-[210px] top-0 z-50">
       {grandChildMenu?.map((subItem) => {
         console.log("subItem :>> ", subItem);
         return (
           <li
-            className="odd:bg-white even:bg-slate-50 text-black hover:text-orange-500"
+            className="odd:bg-white hover:border even:bg-slate-50 p-3   group/child text-black hover:text-orange-500"
             key={subItem?.id}
           >
             <div className="flex justify-between">
@@ -23,11 +23,11 @@ const GrandChildMenu = ({ grandChildMenu }) => {
 
 const ChildMenu = ({ clildMenu }) => {
   return (
-    <ul className="group-hover/parent:flex  flex-col gap-3  hidden    p-3 w-52 absolute border  -right-[210px] top-0 z-50">
+    <ul className="group-hover/parent:flex  flex-col  hidden     w-52 absolute border  -right-[210px] top-0 z-50">
       {clildMenu?.map((subItem) => {
         return (
           <li
-            className="odd:bg-white even:bg-slate-50 group/child text-black hover:text-orange-500"
+            className="odd:bg-white hover:border even:bg-slate-50 p-3 group/child text-black hover:text-orange-500"
             key={subItem?.id}
           >
             <div className="flex justify-between">
@@ -61,13 +61,13 @@ const SideNavigationMenu = () => {
   return (
     <div>
       <div className="mx-auto   mt-10 max-w-screen-lg">
-        <div>
-          <ul className="flex flex-col gap-3   ">
+        <div className=" rounded-lg border w-72  ">
+          <ul>
             {data?.map((item) => {
               return (
                 <li
                   key={item?.id}
-                  className="odd:bg-white w-1/2 group/parent border-b relative hover:text-orange-500"
+                  className="odd:bg-white w-full p-3 group/parent  relative hover:text-orange-500 hover:border"
                 >
                   <div className="flex justify-between">
                     <span>{item?.title}</span>

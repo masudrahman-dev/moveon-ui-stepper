@@ -7,9 +7,9 @@ import StepperFormProvider from "./components/stepper/stepper-context";
 const App = () => {
   return (
     <StepperFormProvider>
-      <Stepper />
+      {/* <Stepper /> */}
 
-      {/* <SideNavigationMenu /> */}
+      <SideNavigationMenu />
     </StepperFormProvider>
   );
 };

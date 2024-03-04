@@ -1,5 +1,6 @@
 import { ArrowRightMini, TriangleDownMini } from "@medusajs/icons";
 import React, { useEffect, useState } from "react";
+import { data } from "./side-navigation-menu";
 
 const GrandChildMenu = ({ grandChildMenu }) => {
   return (
@@ -8,7 +9,7 @@ const GrandChildMenu = ({ grandChildMenu }) => {
         console.log("subItem :>> ", subItem);
         return (
           <li
-            className="odd:bg-white hover:border even:bg-slate-50 p-3   group/child text-black hover:text-orange-500"
+            className=" p-2   group/child text-black hover:text-orange-500"
             key={subItem?.id}
           >
             <div className="flex justify-between">
@@ -23,11 +24,11 @@ const GrandChildMenu = ({ grandChildMenu }) => {
 
 const ChildMenu = ({ clildMenu }) => {
   return (
-    <ul className="group-hover/parent:flex  flex-col  hidden     w-52 absolute border  -right-[210px] top-0 z-50">
+    <ul className="group-hover/parent:flex  flex-col  hidden  rounded-lg    w-52 absolute border  -right-[210px] top-0 z-50">
       {clildMenu?.map((subItem) => {
         return (
           <li
-            className="odd:bg-white hover:border even:bg-slate-50 p-3 group/child text-black hover:text-orange-500"
+            className="  p-2 group/child text-black hover:text-orange-500"
             key={subItem?.id}
           >
             <div className="flex justify-between">
@@ -45,18 +46,18 @@ const ChildMenu = ({ clildMenu }) => {
 };
 
 const SideNavigationMenu = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  const fetchData = async () => {
-    const res = await fetch("side-navigation-menu.json");
-    const lists = await res.json();
+  // const fetchData = async () => {
+  //   const res = await fetch("side-navigation-menu.json");
+  //   const lists = await res.json();
 
-    setData(lists);
-  };
+  //   setData(lists);
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="ml-3">
@@ -67,10 +68,13 @@ const SideNavigationMenu = () => {
               return (
                 <li
                   key={item?.id}
-                  className="odd:bg-white w-full p-3 group/parent  relative hover:text-orange-500 hover:border"
+                  className=" w-full p-2 group/parent text-sm   relative hover:text-orange-500 "
                 >
                   <div className="flex justify-between">
-                    <span>{item?.title}</span>
+                    <div className="inline-flex gap-1">
+                      <span>{item?.icon}</span>
+                      <span>{item?.title}</span>
+                    </div>
                     <span className="group-hover/parent:block hidden">
                       <ArrowRightMini />
                     </span>

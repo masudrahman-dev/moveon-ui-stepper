@@ -2,6 +2,8 @@
     {
         "id": "p1",
         "title": "Womens & Girls Fashion",
+        "icon":"<span>icon</span>",
+        
         "childCategories": [
             {
                 "id": "p1c1",
